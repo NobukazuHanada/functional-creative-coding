@@ -14,7 +14,7 @@ import Control.Monad.Eff.Console
 import Math (sin,cos,pow,pi)
 import Sketch
 import Noise
-import Graphics.Canvas.Free (Graphics())
+import Graphics.Canvas.Free (Graphics(), rect)
 import Graphics.Canvas (Canvas())
 import DOM
 import Signal ((<~), runSignal)
@@ -27,7 +27,7 @@ main = do
   height <- windowHeight
 
   -- runSketch simpleLine
-  -- runSketch draw1
+  runSketch draw1
   -- runSketch manyFracDraw
   -- runSketch sampleLine
   -- runSketch $ randomLine width height
@@ -36,13 +36,22 @@ main = do
   -- runSketch $ circle 200.0
   -- runSketch $ spiral
   -- runSketch $ noizySpiral
-  -- runSketch $ manyNoizySpiral 0
+  runSketch $ manyNoizySpiral 100
   -- runSketch (myComplexCircle 200.0)
   
   -- runSignal $ map timeIsMoney (every second)
   -- runSignal $ map (runSketch <<< perlinLine width height <<< (* 0.0005)) (every millisecond)
   -- runSignal $ map (runSketch <<< perlin2dLine width height <<< (* 0.0005)) (every millisecond)
+  -- moveRect
+  
 
+
+moveRect = do
+  pos <- mousePos
+  runSketchSignal $ map (\pos -> rect { x : (toNumber pos.x),
+                                        y : (toNumber pos.y),
+                                        w : 100.0,
+                                        h : 100.0}) pos 
 
 simpleLine = do 
   width <- windowWidth
