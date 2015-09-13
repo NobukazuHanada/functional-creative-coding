@@ -14,6 +14,7 @@
     "purescript-arrays": "~0.4.2",
     "purescript-console": "^0.1.0",
     "purescript-free-canvas": "~0.4.0",
-    "purescript-random": "~0.2.2"
+    "purescript-random": "~0.2.2",
+    "purescript-signal": "~4.1.0"
   }
 }

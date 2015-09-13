@@ -4,48 +4,37 @@
 
 // module Noise
 
-
-exports.simplex2 = function(x){
-    return function(y){
-        return function(){
-            return noise.simplex2(x,y);
-        }
-    };
-};
-
-
-exports.simplex3 = function(x){
-    return function(y){
-        return function(z){
-            return function(){
-                return noise.simplex3(x,y,z);
-            };
-        };
-    };
-};
-
-
-exports.perlin2 = function(x){
-    return function(y){
-        return function(){
-            return noise.perlin2(x,y);
-        }
-    };
-};
-
-
-exports.perlin3 = function(x){
-    return function(y){
-        return function(z){
-            return function(){
-                return noise.perlin3(x,y,z);
-            };
-        };
-    };
-};
-
 exports.seed = function(val){
     return function(){
-        return noise.seed(val);
+            return processing.noiseSeed(val);
     };
 };
+
+exports.noise1d = function(x){
+    return function(){
+            return processing.noise(x);
+    };
+};
+
+
+
+exports.noise2d = function(x){
+    return function(y){
+        return function(){
+            return processing.noise(x,y);
+        }
+    };
+};
+
+
+exports.noise3d = function(x){
+    return function(y){
+        return function(z){
+            return function(){
+                return processing.noise(x,y,z);
+            };
+        };
+    };
+};
+
+
