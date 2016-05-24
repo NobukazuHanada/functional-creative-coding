@@ -27,22 +27,24 @@ main = do
   height <- windowHeight
 
   -- runSketch simpleLine
-  runSketch draw1
-  -- runSketch manyFracDraw
+  -- runSketch draw1
+  -- runSketch manyfracDraw
   -- runSketch sampleLine
   -- runSketch $ randomLine width height
   -- runSketch $ perlinLine width height 0.0
   -- runSketch $ myComplexLine width height
   -- runSketch $ circle 200.0
-  -- runSketch $ spiral
-  -- runSketch $ noizySpiral
-  runSketch $ manyNoizySpiral 100
+  -- runSketch $ manyNoizySpiral 100
+  -- runSketch $ do
+  --   g1 <- spiral
+  --   g2 <- noizySpiral
+  --   return (g1 *> g2)
   -- runSketch (myComplexCircle 200.0)
   
   -- runSignal $ map timeIsMoney (every second)
   -- runSignal $ map (runSketch <<< perlinLine width height <<< (* 0.0005)) (every millisecond)
   -- runSignal $ map (runSketch <<< perlin2dLine width height <<< (* 0.0005)) (every millisecond)
-  -- moveRect
+  moveRect
   
 
 
@@ -265,4 +267,3 @@ timeIsMoney r =
 
 
 
-                                       
